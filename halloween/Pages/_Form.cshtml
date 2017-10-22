@@ -4,21 +4,32 @@
 
 
 
-<form>
-    <div class="form-group">
-        <label for="sender's name">Sender's Name:</label>
+<form method="post">
+    <div class="panel">
+        <div class="panel-header">Please complete the form below.</div>
+        <div class="form-group">
+            <label asp-for="bridgeGreetings.toSender'sName" class="col-2"></label>
+            <div class="col-10">
+                <input asp-for="bridgeGreetings.toSender'sName" type="text" class="form-control" maxlength="100" />
+                <span asp-validation-for="bridgeGreetings.toSender'sName" class="text-danger"></span>
+                <div class="countdown"></div>
+            </div>
+        </div>
+            
+            <label for="sender's name">Sender's Name:</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter email">
+        </div>
+        <label for="sender's email">Sender's E-mail:</label>
         <input type="email" class="form-control" id="email" placeholder="Enter email">
-    </div>
-    <label for="sender's email">Sender's E-mail:</label>
-    <input type="email" class="form-control" id="email" placeholder="Enter email">
-    <label for="recipient's name">Recipient's Name:</label>
-    <input type="email" class="form-control" id="email" placeholder="Enter email">
-    <label for="recipient's email">Recipient's Email:</label>
-    <input type="email" class="form-control" id="email" placeholder="Enter email">
-    <label for="message">Message</label>
+        <label for="recipient's name">Recipient's Name:</label>
+        <input type="email" class="form-control" id="email" placeholder="Enter email">
+        <label for="recipient's email">Recipient's Email:</label>
+        <input type="email" class="form-control" id="email" placeholder="Enter email">
+        <label for="message">Message</label>
 
-    <input type="email" class="form-control" id="email">
+        <input type="email" class="form-control" id="email">
 
-    <button type="send" class="btn btn-default">Send</button>
-    <div class="g-recaptcha" data-sitekey="6LfJvS8UAAAAABEyjjjR3PFke1abCn2BRC0VHyJc"></div>
+        <button type="next" class="btn btn-default">Next</button>
+        <div class="g-recaptcha" data-sitekey="6LfJvS8UAAAAABEyjjjR3PFke1abCn2BRC0VHyJc"></div>
+        <input type="checkbox" name="terms" value="Agree" checked="checked"> I am 18 years and agree to the terms and conditions.<br>
 </form>
