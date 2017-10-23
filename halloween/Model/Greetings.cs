@@ -12,43 +12,45 @@ namespace halloween.Model
 	{
 
         [DisplayName("Sender's name")]
-        [Required(ErrorMessage = "Required")]
-        public string fromName { get; set; }
+        [Display(Prompt = "First & Last Name")]
+        [Required(ErrorMessage = "You must enter something here.")]
+        [StringLength(100, MinimumLength = 3, ErrorMessage = "You must enter between 3 to 100 characters")]
+        public string SenderName { get; set; }
 
         [DisplayName("Sender's email")]
         [Required(ErrorMessage = "Required")]
-        public string fromEmail { get; set; }
+        public string SenderEmail { get; set; }
 
         [DisplayName("Recipient's name")]
         [Display(Prompt = "Recipient's name")]
         [Required(ErrorMessage = "Required")]
         [StringLength(100, MinimumLength = 3, ErrorMessage = "You must enter between 3 to 100 characters")]
-        public string toName { get; set; }
+        public string RecipientName { get; set; }
 
         [DisplayName("Recipient's email")]
         [Display(Prompt = "username@domain.com")]
         [Required(ErrorMessage = "Required")]
-        public string toEmail { get; set; }
+        public string RecipientEmail { get; set; }
 
         [DisplayName("Subject")]
         [Required(ErrorMessage = "Required")]
-        public string subject { get; set; }
+        public string Subject { get; set; }
 
         [DisplayName("Message")]
         [Required(ErrorMessage = "Required")]
-        public string mesg { get; set; }
+        public string Mesg { get; set; }
 
         [Required(ErrorMessage = "Required")]
-        public string agree { get; set; }
+        public string Agree { get; set; }
 
         [Required(ErrorMessage = "Required")]
-        public string createDate { get; set; }
+        public string CreateDate { get; set; }
 
         [Required(ErrorMessage = "Required")]
-        public string createIP { get; set; }
+        public string CreateIP { get; set; }
 
-        public string sendDate { get; set; }
-        public string sendIP { get; set; }
+        public string SendDate { get; set; }
+        public string SendIP { get; set; }
 
     }
 
