@@ -9,7 +9,8 @@
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
   </ItemGroup>
   <ItemGroup>
-    <None Update="images\pumkins.jpg">
+    <None Include="wwwroot\audio\Monster Mash.wav" />
+    <None Include="wwwroot\images\pumkins.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

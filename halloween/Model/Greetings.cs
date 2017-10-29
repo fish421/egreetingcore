@@ -18,7 +18,9 @@ namespace halloween.Model
         public string SenderName { get; set; }
 
         [DisplayName("Sender's email")]
+        [Display(Prompt = "username@domain.com")]
         [Required(ErrorMessage = "Required")]
+        [StringLength(100, MinimumLength = 3, ErrorMessage = "You must enter between 3 to 100 characters")]
         public string SenderEmail { get; set; }
 
         [DisplayName("Recipient's name")]
@@ -30,14 +32,17 @@ namespace halloween.Model
         [DisplayName("Recipient's email")]
         [Display(Prompt = "username@domain.com")]
         [Required(ErrorMessage = "Required")]
+        [StringLength(100, MinimumLength = 3, ErrorMessage = "You must enter between 3 to 100 characters")]
         public string RecipientEmail { get; set; }
 
         [DisplayName("Subject")]
         [Required(ErrorMessage = "Required")]
+        [StringLength(100, MinimumLength = 3, ErrorMessage = "You must enter between 3 to 100 characters")]
         public string Subject { get; set; }
 
         [DisplayName("Message")]
         [Required(ErrorMessage = "Required")]
+        [StringLength(100, MinimumLength = 3, ErrorMessage = "You must enter between 3 to 100 characters")]
         public string Mesg { get; set; }
 
         [Required(ErrorMessage = "Required")]
