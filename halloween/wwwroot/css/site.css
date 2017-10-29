@@ -1,5 +1,7 @@
 body {
-    background-color: #808080;
+    
+    font-family: ariel;
+    color: #808080;
     font-size: 30px;
 }
 
@@ -8,7 +10,7 @@ h2 {
 }
 /* THIS IS NOT WORKING*/
 label {
-    font-family: UnifrakturCook:70;
+    font-family: UnifrakturCook;
     font-size: 14px;
 }
 /* Style inputs with type="text", select elements and textareas */
@@ -46,6 +48,8 @@ input[type=submit] {
 }
 
 .form-control {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 40px;
 }
 
     .form-control: active {

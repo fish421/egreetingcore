@@ -52,6 +52,9 @@ namespace halloween.Model
         public string SendDate { get; set; }
         public string SendIP { get; set; }
 
+        [Required(ErrorMessage = "Required")]
+        public string reCaptcha { get; set; }
+
     }
 
 }
