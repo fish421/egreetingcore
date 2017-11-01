@@ -3,19 +3,19 @@
 
 
 
-<h2>Your Halloween Greeting</h2>
+<h2>Happy Halloween!</h2>
 
 
-            @*@Html.Partial("_Form")
-            @Html.Partial("_Preview")
-            @Html.Partial("_Layout")
-            @Html.Partial("_ValidationScriptsPartial")
-            @Html.Partial("_Music")*@
-           
+@*@Html.Partial("_Form")
+    @Html.Partial("_Preview")
+    @Html.Partial("_Layout")
+    @Html.Partial("_ValidationScriptsPartial")
+    @Html.Partial("_Music")*@
+
 <div class="container-fluid">
     <div class="row">
         <div class="card col-sm-6 col-md-6 col-lg-6">
-            <img src="~/images/halloween.jpg" class="img-responsive" />
+            <img src="~/images/pumkins.jpg" class="img-responsive" />
         </div>
         <div class="entry col-sm-6 col-md-6 col-lg-6">
 
@@ -34,12 +34,25 @@
                     <script src="~/js/ww-form-character-countdown.js"></script>
                     <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
                     <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
-                }
+
+
+                    <!-- RECAPTCHA API use the site key here-->
+                    <script src='https://www.google.com/recaptcha/api.js'></script>
+
+                    <script>
+                        $("form").submit(function (ev­e­nt) {
+                            alert("I am about to submit the form");
+                            var recaptcha = $("#g-recaptcha-response").val­­();
+                            if (recaptcha === "6Lc1SjYUAAAAAJUlUdK8W8sLz80ayLOoK-EpbSUv") {
+                                event.preventDefault();
+                                alert("Please check the recaptcha");
+                            }
+                        });
+                    </script>}
+            }
 
             }
 
         </div>
     </div>
 </div>
-
-

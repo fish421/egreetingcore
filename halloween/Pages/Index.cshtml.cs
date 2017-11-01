@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using halloween.Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using halloween.Model;
-using System.Net.Http;
 using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace halloween.Pages
 {
@@ -21,33 +20,45 @@ namespace halloween.Pages
         // PREVIEW MODE (AFTER SUBMITTING)
         public async Task<IActionResult> OnPost()
         {
-           //isPreviewPage = true;
-
             if (await isValid())
             {
                 if (ModelState.IsValid)
                 {
-                    try
-                    {
-                        // ADD TO DATABASE
-                        //_context.__MODEL__.Add(__MODEL__);
-                        //_context.SaveChanges();
 
-                        return RedirectToPage("");
-                    }
-                    catch { }
+                    //try
+                    //{
+                    // HEY, ADD TO DATABASE
+                    bridgeGreetings.createDate = DateTime.Now.ToString();
+                    bridgeGreetings.createIP = this.HttpContext.Connection.RemoteIpAddress.ToString();
+
+                    _myDB.Greetings.Add(bridgeGreetings);
+                    _myDB.SaveChanges();
+
+                    return RedirectToPage("Preview", new { id = bridgeGreetings.ID });
+                    //}
+                    //catch { }
                 }
             }
             else
             {
-                ModelState.AddModelError("bridgeGreetings.Recaptcha", "Try Again");
+                ModelState.AddModelError("bridgeGreetings.reCaptcha", "Please try again");
             }
 
             return Page();
         }
+
         // BRIDGE TO GREETINGS MODEL
         [BindProperty]
         public Greetings bridgeGreetings { get; set; }
+
+        // HEY, CONNECT MY DATABASE TO THIS MODEL
+        private DBBuilder _myDB;
+        public IndexModel(DBBuilder myDB)
+        {
+            _myDB = myDB;
+        }
+
+
 
         // TEST IF USER IS LOOKING AT PREVIEW OR FORM
         public bool isPreviewPage { get; set; }
@@ -90,7 +101,7 @@ namespace halloween.Pages
             return false;
         }
 
+
+
     }
 }
-
-

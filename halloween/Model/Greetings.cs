@@ -10,6 +10,8 @@ namespace halloween.Model
 
 	public class Greetings
 	{
+        internal string createDate;
+        internal string createIP;
 
         [DisplayName("Sender's name")]
         [Display(Prompt = "First & Last Name")]
@@ -59,7 +61,7 @@ namespace halloween.Model
 
         [Required(ErrorMessage = "Required")]
         public string reCaptcha { get; set; }
-
+        public object ID { get; internal set; }
     }
 
 }

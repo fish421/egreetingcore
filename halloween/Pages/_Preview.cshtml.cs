@@ -1,16 +1,29 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using halloween.Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace halloween.Pages
 {
-    public class _PreviewModel : PageModel
+    public class PreviewModel : PageModel
     {
-        public void OnGet()
+        // BRIDGE TO GREETINGS MODEL
+        [BindProperty]
+        public Greetings bridgeGreetings { get; set; }
+
+        // DB-RELATED: CONNECT MY DATABASE TO THIS MODEL
+        private DBBuilder _myDB;
+        public PreviewModel(DBBuilder myDB)
         {
+            _myDB = myDB;
+        }
+
+
+        public void OnGet(int ID = 0)
+        {
+            if (ID > 0)
+            {
+                bridgeGreetings = _myDB.Greetings.Find(ID);
+            }
         }
     }
 }

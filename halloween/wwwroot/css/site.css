@@ -7,11 +7,17 @@ body {
 
 h2 {
     font-family: creepster;
+    font-size: 60px;
+    align-content: center;
+}
+
+.panel header {
+    font-family: Eater;
 }
 /* THIS IS NOT WORKING*/
 label {
-    font-family: UnifrakturCook;
-    font-size: 14px;
+    font-family: UnifrakturCook:70|UnifrakturMaguntia%22;
+    font-size: 16px;
 }
 /* Style inputs with type="text", select elements and textareas */
 input[type=text], select, textarea {
@@ -49,7 +55,7 @@ input[type=submit] {
 
 .form-control {
     font-family: 'Times New Roman', Times, serif;
-    font-size: 40px;
+    font-size: 20px;
 }
 
     .form-control: active {
