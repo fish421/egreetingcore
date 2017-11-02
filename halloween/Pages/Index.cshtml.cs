@@ -25,18 +25,24 @@ namespace halloween.Pages
                 if (ModelState.IsValid)
                 {
 
-                    //try
-                    //{
-                    // HEY, ADD TO DATABASE
+                    try
+                    {
+                    // DB-RELATED: CUSTOMIZE VALUES TO BE ADDED TO THE DATABASE
                     bridgeGreetings.createDate = DateTime.Now.ToString();
                     bridgeGreetings.createIP = this.HttpContext.Connection.RemoteIpAddress.ToString();
+                    bridgeGreetings.SenderEmail = bridgeGreetings.SenderEmail.ToLower();
+                    bridgeGreetings.RecipientEmail = bridgeGreetings.RecipientEmail.ToLower();
+                    bridgeGreetings.Agree = "Y";
+                    bridgeGreetings.Agree = "Incomplete";
+                    bridgeGreetings.Mesg = bridgeGreetings.SenderName.Replace("bad word", "");
 
+                    // DB-RELATED: ADD NEW RECORD TO THE DATABASE
                     _myDB.Greetings.Add(bridgeGreetings);
                     _myDB.SaveChanges();
 
                     return RedirectToPage("Preview", new { id = bridgeGreetings.ID });
-                    //}
-                    //catch { }
+                    }
+                    catch { }
                 }
             }
             else
